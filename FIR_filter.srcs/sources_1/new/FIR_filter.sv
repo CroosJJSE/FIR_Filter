@@ -12,12 +12,12 @@ module fir_filter #(
 );
 
     genvar n;
-    logic signed [N:0][W_X-1:0] z;  // Delay line for input data
+    logic signed [N:0][W_X-1:0] z;  // Delay line for input data, creating N+1 registers to store Xs.
 
-    assign z[0] = x;
+    assign z[0] = x; // we are connecting x directly to the z[0] it is not register, it is combinational
 
     always_ff @(posedge clk or negedge rstn) begin
-        z[N:1] <= ~rstn ? '0 : z[N-1:0];  // Shift data through the delay line
+        z[N:1] <= ~rstn ? '0 : z[N-1:0];  // Shift data through the delay line // previous Z values are assigned to new value where Z[0] is new X
     end
 
     always_comb begin
