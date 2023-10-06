@@ -1,5 +1,6 @@
 # FIR_Filter
 parameterized fir filter,
+we will receive the coefficient from the signal guys and implement the Nth order FIR filter.
 
 the circuit
 here we are using accumulation method of adding which is comsuming low resourse, but it is slow than the adder tree methos.
