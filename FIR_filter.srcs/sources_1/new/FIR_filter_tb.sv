@@ -19,7 +19,7 @@ module fir_filter_tb;
     fir_filter #(.N(N), .W_X(W_X), .W_K(W_K), .K(K)) dut (.clk(clk), .rstn(rstn), .x(x), .y(y));
 
     logic signed [W_X-1:0] zi [N+1] = '{default:0};  // Initialize delay line
-    logic signed [W_X-1:0] zq [$] = zi;
+    logic signed [W_X-1:0] zq [$] = zi;                //queue is a dynamic list,
 
     int status, y_exp = 0;
     int file_x = $fopen("D:/x.txt", "r");  // Open input file
